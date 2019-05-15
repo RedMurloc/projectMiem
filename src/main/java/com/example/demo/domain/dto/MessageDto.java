@@ -5,7 +5,7 @@ import com.example.demo.domain.User;
 import com.example.demo.domain.util.MessageHelper;
 
 public class MessageDto {
-    private Long id;
+    private Integer id;
     private String text;
     private String tag;
     private User author;
@@ -27,7 +27,7 @@ public class MessageDto {
         return MessageHelper.getAuthorName(author);
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 

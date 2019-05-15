@@ -23,6 +23,18 @@ spring:
 recaptcha:
   secret: 6LduQVoUAAAAACpkNtp9c5WWgyGENzIxZqF9SbZL
 
+mail:
+  debug: false
+
+upload:
+  path: /home/dev/uploads
+
+
+server:
+  port: 9000
+
+hostname: localhost:${server.port}
+
 
 
 
