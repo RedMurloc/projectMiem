@@ -11,7 +11,7 @@ import java.util.Set;
 @Entity
 public class Message {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
 
     @NotBlank(message = "Please fill the message")

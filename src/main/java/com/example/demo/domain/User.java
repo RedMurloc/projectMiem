@@ -15,7 +15,7 @@ import java.util.Set;
 @Table(name = "usr")
 public class User implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @NotBlank(message = "Username cannot be empty")
     private String username;
@@ -66,8 +66,9 @@ public class User implements UserDetails {
         return Objects.hash(id);
     }
 
+    @Transient
     public boolean isAdmin() {
-        return roles.contains(Role.ADMIN);
+        return getRoles().contains(Role.ADMIN);
     }
 
     public Integer getId() {
@@ -173,5 +174,15 @@ public class User implements UserDetails {
 
     public void setSubscriptions(Set<User> subscriptions) {
         this.subscriptions = subscriptions;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", active=" + active +
+                ", roles=" + roles +
+                '}';
     }
 }

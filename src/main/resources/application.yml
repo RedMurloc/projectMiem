@@ -9,8 +9,8 @@ spring:
     expose-request-attributes: true
   mail:
     host: smtp.yandex.ru
-    username: uw@dru.su
-    password: 12345678
+    username: il.sach@yandex.ru
+    password: ildar1357
     port: 465
     protocol: smtps
 
@@ -21,7 +21,7 @@ spring:
 
 
 recaptcha:
-  secret: 6LduQVoUAAAAACpkNtp9c5WWgyGENzIxZqF9SbZL
+  secret: 6LeMp6MUAAAAAFP-xwRCNN71DYZwCKg74G4HwUSb
 
 mail:
   debug: false

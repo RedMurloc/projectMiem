@@ -1,3 +1,4 @@
+create sequence hibernate_sequence;
 
 create table message (
     id int not null,
