@@ -3,7 +3,7 @@
 <@c.page>
 <div id="content" class="container-fluid">
     <div class="row" style="margin-top: 10px;">
-        <div class="col-lg-9 border-right border-dark" style="font-family: 'Arial'; font-size: 14pt;">
+        <div class="col-lg-10 border-right border-dark" style="font-family: 'Arial'; font-size: 14pt;">
             <!-- <div class="row">
                 <div class="col-lg-6">
                     <h3 style="font-family: Arial;">New report name</h3>
@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3" style="min-height: 90vh;">
+        <div class="col-lg-2" style="min-height: 90vh;">
             <div class="row">
                 <div class="col-lg-12">
                     <h4 style="font-family: Arial;">Все компоненты</h3>

@@ -1,8 +1,8 @@
   component1.onclick = function() {
   	if(!$(this).hasClass('checked')){
-  		$('#report').append('<div class="col-lg-4">\
+  		$('#report').append('<div class="col-lg-6">\
 					<div style="height: 300px; margin-top: 40px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); text-align: center; border: 1px solid black;">\
-						<canvas id="Cnvs1" width="440" height="300"> \
+						<canvas id="Cnvs1" width="400" height="300"> \
 					</div>');
   		var Cnvs = document.getElementById('Cnvs1').getContext('2d');
 		var barChart = new Chart(Cnvs, {
@@ -19,9 +19,9 @@
 
     component2.onclick = function() {
   	if(!$(this).hasClass('checked')){
-  		$('#report').append('<div class="col-lg-4">\
+  		$('#report').append('<div class="col-lg-6">\
 					<div style="height: 300px; margin-top: 40px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); text-align: center; border: 1px solid black;">\
-						<canvas id="Cnvs2" width="440" height="300"> \
+						<canvas id="Cnvs2" width="400" height="300"> \
 					</div>');
   		var Cnvs = document.getElementById('Cnvs2').getContext('2d');
   		var barChart = new Chart(Cnvs, {
@@ -38,9 +38,9 @@
 
     component3.onclick = function() {
   	if(!$(this).hasClass('checked')){
-  		$('#report').append('<div class="col-lg-4">\
+  		$('#report').append('<div class="col-lg-6">\
 					<div style="height: 300px; margin-top: 40px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); text-align: center; border: 1px solid black;">\
-						<canvas id="Cnvs3" width="440" height="300"> \
+						<canvas id="Cnvs3" width="400" height="300"> \
 					</div>');
   		var Cnvs = document.getElementById('Cnvs3').getContext('2d');
 		var lineChart = new Chart(Cnvs, {
@@ -57,9 +57,9 @@
 
     component4.onclick = function() {
   	if(!$(this).hasClass('checked')){
-  		$('#report').append('<div class="col-lg-4">\
+  		$('#report').append('<div class="col-lg-6">\
 					<div style="height: 300px; margin-top: 40px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); text-align: center; border: 1px solid black;">\
-						<canvas id="Cnvs4" width="440" height="300"> \
+						<canvas id="Cnvs4" width="400" height="300"> \
 					</div>');
   		var Cnvs = document.getElementById('Cnvs4').getContext('2d');
   		var barChart = new Chart(Cnvs, {
@@ -76,9 +76,9 @@
 
     component5.onclick = function() {
   	if(!$(this).hasClass('checked')){
-  		$('#report').append('<div class="col-lg-4">\
+  		$('#report').append('<div class="col-lg-6">\
 					<div style="height: 300px; margin-top: 40px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); text-align: center; border: 1px solid black;">\
-						<canvas id="Cnvs5" width="440" height="300"> \
+						<canvas id="Cnvs5" width="400" height="300"> \
 					</div>');
   		var Cnvs = document.getElementById('Cnvs5').getContext('2d');
   		var lineChart = new Chart(Cnvs, {

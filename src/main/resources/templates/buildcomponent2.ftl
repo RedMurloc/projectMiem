@@ -39,7 +39,7 @@
                             <p>Визуализированные данные:</p>
                             <hr style="border-color: black;">-->
                         <input id="componentTitle" type="text" name="componentTitle" style="font-family: Arial; outline: none; border:none; width: 100%; text-align: center; font-size: 22pt;" placeholder="Название компонента" />
-                        <canvas id="Cnvs" width=900" height="430" style="border:1px solid #000000; margin: 0 auto;">
+                        <canvas id="Cnvs" width=700" height="430" style="border:1px solid #000000; margin: 0 auto;">
                         </canvas>
                         <!--</div>-->
                         <div style="margin-top: 40px;">
