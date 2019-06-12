@@ -6,13 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller("/diagram")
-public class DiagramsController {
+@Controller("/component")
+public class ComponentController {
 
     @GetMapping
-    public String getDiagrams(Model model, @AuthenticationPrincipal User user) {
+    public String getComponent(Model model, @AuthenticationPrincipal User user) {
 
-        model.addAttribute("url", "/diagram");
-        return "diagram";
+        model.addAttribute("url", "/component");
+        return "component";
     }
- }
+}
