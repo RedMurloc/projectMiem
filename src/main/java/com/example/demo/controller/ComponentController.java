@@ -6,10 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller("/component")
+@Controller
 public class ComponentController {
 
-    @GetMapping
+    @GetMapping("/component")
     public String getComponent(Model model, @AuthenticationPrincipal User user) {
 
         model.addAttribute("url", "/component");

@@ -6,10 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller("/project")
+@Controller
 public class ProjectController {
 
-    @GetMapping
+    @GetMapping("/project")
     public String getView(Model model, @AuthenticationPrincipal User user) {
 
         model.addAttribute("url", "/project");
