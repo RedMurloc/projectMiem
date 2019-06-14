@@ -43,12 +43,7 @@ public class DiagramsController {
     ) {
 
         FileData fileData = fileService.saveFile(user.getId(), file);
-
-        model.addAttribute("hasFile", false);
-        if (fileData != null) {
-            model.addAttribute("hasFile", true);
-            model.addAttribute("fileData", fileData);
-        }
+        model.addAttribute("fileData", fileData);
 
         model.addAttribute("url", "/diagram");
         return "diagram";

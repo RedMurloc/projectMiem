@@ -62,7 +62,7 @@
                           <button type="submit" class="btn btn-primary">Загрузить данные для графиков</button>
                       </div>
                   </form>
-                  <#if hasFile??>
+                  <#if fileData??>
                     <div class="form-group">
                         ${fileData.id}  ${fileData.getName()}
                     </div>

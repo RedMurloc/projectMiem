@@ -65,6 +65,7 @@ public class FileService {
                 result.add(getDataFromRow(row));
             }
 
+            fileData.setName(multipartFile.getName());
             fileData = fileDataRepo.save(fileData);
             results.put(fileData.getId(), result);
             return fileData;
