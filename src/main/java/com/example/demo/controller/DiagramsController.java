@@ -1,12 +1,13 @@
 package com.example.demo.controller;
 
+import com.example.demo.domain.FileData;
 import com.example.demo.domain.User;
 import com.example.demo.domain.dto.DiagramDto;
 import com.example.demo.service.DiagramService;
+import com.example.demo.service.FileService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,14 +20,17 @@ import java.util.List;
 public class DiagramsController {
 
     private final DiagramService diagramService;
+    private final FileService fileService;
 
-    public DiagramsController(DiagramService diagramService) {
+    public DiagramsController(DiagramService diagramService, FileService fileService) {
         this.diagramService = diagramService;
+        this.fileService = fileService;
     }
 
     @GetMapping("/diagram")
     public String getDiagrams(Model model, @AuthenticationPrincipal User user) {
 
+        model.addAttribute("hasFile", false);
         model.addAttribute("url", "/diagram");
         return "diagram";
     }
@@ -34,11 +38,17 @@ public class DiagramsController {
     @PostMapping("/diagram/file")
     public String saveFileForDiagram(
                 @AuthenticationPrincipal User user,
-                BindingResult bindingResult,
                 Model model,
                 @RequestParam("file") MultipartFile file
     ) {
 
+        FileData fileData = fileService.saveFile(user.getId(), file);
+
+        model.addAttribute("hasFile", false);
+        if (fileData != null) {
+            model.addAttribute("hasFile", true);
+            model.addAttribute("fileData", fileData);
+        }
 
         model.addAttribute("url", "/diagram");
         return "diagram";

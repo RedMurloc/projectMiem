@@ -51,7 +51,7 @@
                   <form action="/diagram/file" method="post" enctype="multipart/form-data">
                       <div class="form-group">
                           <div class="custom-file" id="customFile" lang="es">
-                              <input type="file" class="custom-file-input" id="inputFile" aria-describedby="fileHelp">
+                              <input type="file" name="file" class="custom-file-input" id="inputFile" aria-describedby="fileHelp">
                               <label class="custom-file-label" for="inputFile">
                                   Выбирете файл
                               </label>
@@ -62,6 +62,11 @@
                           <button type="submit" class="btn btn-primary">Загрузить данные для графиков</button>
                       </div>
                   </form>
+                  <#if hasFile??>
+                    <div class="form-group">
+                        ${fileData.id}  ${fileData.getName()}
+                    </div>
+                  </#if>
                 </div>
                 <canvas id="Cnvs" width="0" height="0">
             </div>
