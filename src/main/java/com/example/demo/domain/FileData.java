@@ -4,9 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity(name = "file_data")
 public class FileData {
@@ -19,7 +17,7 @@ public class FileData {
 
     private Integer userId;
 
-    private List<String> columns;
+    private String[] columns;
 
 
     public Long getId() {
@@ -46,11 +44,11 @@ public class FileData {
         this.userId = userId;
     }
 
-    public List<String> getColumns() {
+    public String[] getColumns() {
         return columns;
     }
 
-    public void setColumns(List<String> columns) {
+    public void setColumns(String[] columns) {
         this.columns = columns;
     }
 

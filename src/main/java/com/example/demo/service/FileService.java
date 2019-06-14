@@ -56,7 +56,7 @@ public class FileService {
             Sheet sheet = workbook.getSheetAt(0);
             Iterator<Row> iterator = sheet.rowIterator();
             if (iterator.hasNext()) {
-                fileData.setColumns(getColumns(iterator.next()));
+                fileData.setColumns(getDataFromRow(iterator.next()));
             }
 
             List<String[]> result = new ArrayList<>();
