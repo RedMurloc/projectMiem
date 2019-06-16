@@ -14,9 +14,11 @@ public class Diagram {
 
     private String name;
 
-    private Integer fileId;
+    private Long fileId;
 
     private Integer userId;
+
+    private String[] data;
 
     public Long getId() {
         return id;
@@ -34,11 +36,11 @@ public class Diagram {
         this.name = name;
     }
 
-    public Integer getFileId() {
+    public Long getFileId() {
         return fileId;
     }
 
-    public void setFileId(Integer fileId) {
+    public void setFileId(Long fileId) {
         this.fileId = fileId;
     }
 
@@ -48,5 +50,13 @@ public class Diagram {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public String[] getData() {
+        return data;
+    }
+
+    public void setData(String[] data) {
+        this.data = data;
     }
 }

@@ -1,14 +1,18 @@
 package com.example.demo.domain.dto;
 
+import java.util.List;
+
 public class DiagramDto {
 
     private Long id;
 
-    private String name;
+    private List<String> data;
 
-    public DiagramDto(Long id, String name) {
+    private String typeDiagram;
+
+    public DiagramDto(Long id, String typeDiagram) {
         this.id = id;
-        this.name = name;
+        this.typeDiagram = typeDiagram;
     }
 
     public Long getId() {
@@ -19,11 +23,19 @@ public class DiagramDto {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public List<String> getData() {
+        return data;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setData(List<String> data) {
+        this.data = data;
+    }
+
+    public String getTypeDiagram() {
+        return typeDiagram;
+    }
+
+    public void setTypeDiagram(String typeDiagram) {
+        this.typeDiagram = typeDiagram;
     }
 }

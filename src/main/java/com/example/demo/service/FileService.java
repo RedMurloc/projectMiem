@@ -3,24 +3,13 @@ package com.example.demo.service;
 import com.example.demo.domain.FileData;
 import com.example.demo.domain.dto.FileDto;
 import com.example.demo.repos.FileDataRepo;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.ss.usermodel.*;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
@@ -105,5 +94,11 @@ public class FileService {
         }
 
         return strings;
+    }
+
+    public List<String> getDataByColumn(Long fileId, Integer columnNumber) {
+        return results.get(fileId).stream()
+                .map(arr-> arr[columnNumber])
+                .collect(Collectors.toList());
     }
 }

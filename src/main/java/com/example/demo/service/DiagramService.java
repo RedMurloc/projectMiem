@@ -5,9 +5,6 @@ import com.example.demo.domain.dto.DiagramDto;
 import com.example.demo.repos.DiagramRepo;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @Service
 public class DiagramService {
 
@@ -17,21 +14,10 @@ public class DiagramService {
         this.diagramRepo = diagramRepo;
     }
 
-    public List<DiagramDto> getAllDiagramByProject(String projectName) {
-
-        for (int i = 0; i < 10; i++) {
-
-            Diagram diagram = new Diagram();
-            diagram.setName("Name diagram" + i);
-            diagramRepo.save(diagram);
-        }
-
-        return convertToDto(diagramRepo.findAll());
+    public DiagramDto saveDiagram(Diagram diagram) {
+        diagram = diagramRepo.save(diagram);
+        DiagramDto diagramDto = new DiagramDto(diagram.getId(), "type");
+        return diagramDto;
     }
 
-    private List<DiagramDto> convertToDto(List<Diagram> diagrams) {
-        return diagrams.stream()
-                        .map(diagram -> new DiagramDto(diagram.getId(), diagram.getName()))
-                        .collect(Collectors.toList());
-    }
 }

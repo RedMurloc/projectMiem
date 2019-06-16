@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.FileData;
+import com.example.demo.domain.Diagram;
 import com.example.demo.domain.User;
 import com.example.demo.domain.dto.DiagramDto;
 import com.example.demo.domain.dto.FileDto;
@@ -50,10 +50,24 @@ public class DiagramsController {
         return "diagram";
     }
 
-
-    @GetMapping("/diagrams")
+    @GetMapping("/diagram/{fileId}")
     @ResponseBody
-    public List<DiagramDto> getAllDiagrams() {
-        return diagramService.getAllDiagramByProject("");
+    public DiagramDto getDiagramByColumn(@AuthenticationPrincipal User user,
+                                         @RequestParam String diagramType,
+                                         @RequestParam Integer column,
+                                         @RequestParam Long fileId
+                                         ){
+
+        Diagram diagram = new Diagram();
+        diagram.setName("New Diagram");
+        diagram.setFileId(fileId);
+        diagram.setUserId(user.getId());
+
+        List<String> data = fileService.getDataByColumn(fileId, column);
+        diagram.setData((String[]) data.toArray());
+        DiagramDto diagramDto = diagramService.saveDiagram(diagram);
+        diagramDto.setData(data);
+
+        return diagramDto;
     }
  }
