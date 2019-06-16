@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.FileData;
+import com.example.demo.domain.dto.FileDto;
 import com.example.demo.repos.FileDataRepo;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -8,6 +9,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -36,7 +38,7 @@ public class FileService {
         this.fileDataRepo = fileDataRepo;
     }
 
-    public FileData saveFile(Integer userid, MultipartFile file) {
+    public FileDto saveFile(Integer userid, MultipartFile file) {
 
         FileData fileData = new FileData();
         fileData.setUserId(userid);
@@ -50,7 +52,7 @@ public class FileService {
         return null;
     }
 
-    private FileData parseExcel(FileData fileData, MultipartFile multipartFile) {
+    private FileDto parseExcel(FileData fileData, MultipartFile multipartFile) {
         try (InputStream is = multipartFile.getInputStream()) {
             Workbook workbook = WorkbookFactory.create(is);
             Sheet sheet = workbook.getSheetAt(0);
@@ -68,7 +70,10 @@ public class FileService {
             fileData.setName(multipartFile.getName());
             fileData = fileDataRepo.save(fileData);
             results.put(fileData.getId(), result);
-            return fileData;
+
+            return new FileDto(fileData.getName(),
+                               Arrays.stream(fileData.getColumns())
+                                        .collect(Collectors.toList()));
         } catch (Exception e) {
             throw new RuntimeException("Ошибка в парсинге файла");
         }
@@ -80,17 +85,12 @@ public class FileService {
     }
 
     private String[] getDataFromRow(Row row) {
-        Short firstCellNum = null;
-        Short lastCellNum = null;
         int length = 0;
 
-        if (firstCellNum == null) {
-            firstCellNum = row.getFirstCellNum();
-        }
-        if (lastCellNum == null) {
-            lastCellNum = row.getLastCellNum();
-            length = lastCellNum - firstCellNum;
-        }
+        Short firstCellNum = row.getFirstCellNum();
+        Short lastCellNum = row.getLastCellNum();
+
+        length = lastCellNum - firstCellNum;
         String[] strings = new String[length];
         for (short i = firstCellNum; i < lastCellNum; i++) {
             Cell cell = row.getCell(i);

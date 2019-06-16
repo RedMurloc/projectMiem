@@ -4,16 +4,6 @@
 <div id="content" class="container-fluid">
     <div class="row" style="margin-top: 10px;">
         <div class="col-lg-10 border-right border-dark" style="font-family: 'Arial'; font-size: 14pt;">
-            <!-- <div class="row">
-                <div class="col-lg-6">
-                    <h3 style="font-family: Arial;">New report name</h3>
-                </div>
-                <div class="col-lg-6">
-                    <button type="button" class="btn btn-outline-primary">Добавить элемент отчета</button>
-                    <button type="button" class="btn btn-outline-danger">Удалить элемент отчета</button>
-                    <button type="button" class="btn btn-outline-success">Сохранить отчет</button>
-                </div>
-            </div> -->
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h1>Создание нового отчета</h1>
@@ -22,11 +12,6 @@
             <div class="row">
                 <div class="col-lg-12">
                     <input type="text" name="componentTitle" style="font-family: Arial; outline: none; border:none; width: 100%; text-align: center; font-size: 22pt;" placeholder="Название отчета" />
-                    <!-- <div class="float-right">
-                    <button type="button" class="btn btn-outline-primary">Добавить компонент</button>
-                    <button type="button" class="btn btn-outline-danger">Удалить компонент</button>
-                    <button type="button" class="btn btn-outline-success">Сохранить отчет</button>
-                </div>
  -->				</div>
             </div>
             <div class="row" id="report">
@@ -62,20 +47,25 @@
                           <button type="submit" class="btn btn-primary">Загрузить данные для графиков</button>
                       </div>
                   </form>
-                  <#if fileData??>
-                    <div class="form-group">
-                        ${fileData.id}  ${fileData.getName()}
-                    </div>
+                  <#if fileDto??>
+                    <ul class="list-group">
+                        <#list fileDto.getColumns() as column>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <span>${column}</span>
+                                </div>
+                                <div class="col-lg-6">
+                                    <button id="makeDiagram" type="button" class="btn btn-primary">Построить диаграмму</button>
+                                </div>
+                            </div>
+                        </li>
+                        </#list>
+                    </ul>
                   </#if>
                 </div>
                 <canvas id="Cnvs" width="0" height="0">
             </div>
-
-            <!-- 			<div class="row border-top">
-                            <div class="col-lg-12">
-                                <h4 style="font-family: Arial;">Виды элементов</h3>
-                            </div>
-                        </div> -->
         </div>
     </div>
 </div>

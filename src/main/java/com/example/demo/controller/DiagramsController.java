@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.domain.FileData;
 import com.example.demo.domain.User;
 import com.example.demo.domain.dto.DiagramDto;
+import com.example.demo.domain.dto.FileDto;
 import com.example.demo.service.DiagramService;
 import com.example.demo.service.FileService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -42,8 +43,8 @@ public class DiagramsController {
                 @RequestParam("file") MultipartFile file
     ) {
 
-        FileData fileData = fileService.saveFile(user.getId(), file);
-        model.addAttribute("fileData", fileData);
+        FileDto fileDto = fileService.saveFile(user.getId(), file);
+        model.addAttribute("fileDto", fileDto);
 
         model.addAttribute("url", "/diagram");
         return "diagram";

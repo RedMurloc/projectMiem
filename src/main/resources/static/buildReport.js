@@ -15,7 +15,7 @@
   	else{
   		$('#Cnvs1').parent().parent().remove();
   	}
-  }
+  };
 
     component2.onclick = function() {
   	if(!$(this).hasClass('checked')){
@@ -34,7 +34,7 @@
   	else{
   		$('#Cnvs2').parent().parent().remove();
   	}
-  }
+  };
 
     component3.onclick = function() {
   	if(!$(this).hasClass('checked')){
@@ -53,7 +53,7 @@
   	else{
   		$('#Cnvs3').parent().parent().remove();
   	}
-  }
+  };
 
     component4.onclick = function() {
   	if(!$(this).hasClass('checked')){
@@ -72,7 +72,7 @@
   	else{
   		$('#Cnvs4').parent().parent().remove();
   	}
-  }
+  };
 
     component5.onclick = function() {
   	if(!$(this).hasClass('checked')){
@@ -91,4 +91,8 @@
   	else{
   		$('#Cnvs5').parent().parent().remove();
   	}
-  }
+  };
+
+  $( "#makeDiagram" ).click(function() {
+	  alert( "Handler for .click() called." );
+  });
